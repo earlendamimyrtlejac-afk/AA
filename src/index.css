@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Noto Serif SC", "Georgia", serif;
+  --font-mono: "Courier New", Courier, monospace;
+  
+  --color-bg: #F2F2F2;
+  --color-ink: #1A1A1A;
+  --color-line: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  input[type="date"], input[type="time"] {
+    appearance: none;
+    background: transparent;
+    border-bottom: 0.5px solid var(--color-ink);
+    padding: 0.75rem 0;
+    border-radius: 0;
+  }
+}
+
+.serif { font-family: var(--font-serif); }
+.mono { font-family: var(--font-mono); }
+
+.border-thin { border-width: 0.5px; }
+
+.pillar-glow { 
+  box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1); 
+}
+
+@layer utilities {
+  .analysis-content h1, .analysis-content h2, .analysis-content h3 {
+    @apply font-serif italic mb-2 mt-6 first:mt-0 text-ink border-b border-ink/5 pb-1 text-sm font-bold;
+  }
+  .analysis-content p {
+    @apply mb-4 text-xs leading-relaxed opacity-60;
+  }
+  .analysis-content strong {
+    @apply text-ink font-bold;
+  }
+  .analysis-content ul {
+    @apply list-none mb-4 space-y-2 text-xs opacity-60;
+  }
+  .analysis-content li {
+    @apply border-l border-ink/10 pl-3;
+  }
+}
